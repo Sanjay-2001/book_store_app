@@ -16,7 +16,7 @@ import { formatPublishDate } from "../../lib/utils";
 import Loader from "../../components/Loader";
 
 const Home = () => {
-  const { token, logout } = useAuthStore();
+  const { token } = useAuthStore();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -117,7 +117,7 @@ const Home = () => {
     return stars;
   };
 
-  if (loading) return <Loader />;
+  if (loading && !refreshing) return <Loader />;
   return (
     <View style={styles.container}>
       <FlatList
