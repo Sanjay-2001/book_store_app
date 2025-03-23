@@ -116,6 +116,8 @@ const Create = () => {
     } catch (error) {
       console.error("Error creating post:", error);
       Alert.alert("Error", error.message || "Something went wrong");
+    } finally {
+      setLoading(false);
     }
   };
 
